@@ -1,0 +1,93 @@
+<h3>Dashboard</h3>
+
+<h5>Teachers</h5><a href="add/teacher"><button>Add + </button></a>
+{% if teachers %}
+<table border="2">
+          <tr>
+          <th>#</th>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Subject</th>
+          <th>Qualifications</th>
+          <th>Phone number</th>
+          <th>Email</th>
+          <th>Photo</th>
+          <th>Edit</th>
+          </tr>
+          {% for item in teachers %}
+          <tr>      
+                    <td>{{forloop.counter}}
+                    <td>{{item.id}}</td>
+                    <td>{{item.user.first_name}}</td>
+                    <td>{{item.Department}}</td>
+                    <td>{{item.Subject}}</td>
+                    <td>{{item.Qualifications}}</td>
+                    <td>{{item.Phone_number}}</td>
+                    <td>{{item.user.email}}</td>
+                    <td>{{item.Photo}}</td>
+                    <td><a href="/manager/edit/teacher/{{item.id}}"><button>Edit</button></a></td>
+          </tr>
+          {% endfor %}
+</table>
+{% endif %}
+<h5>Students</h5><a href="add/student"><button>Add + </button></a>
+{% if students %}
+<table border="2">
+          <tr>
+          <th>#</th>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Phone number</th>
+          <th>Email</th>
+          <th>Date of Birth</th>
+          <th>Photo</th>
+          <th>Parent name</th>
+          <th>Contact number</th>
+          <th>Edit</th>
+          </tr>
+          {% for item in students %}
+          <tr>      
+                    <td>{{forloop.counter}}
+                    <td>{{item.id}}</td>
+                    <td>{{item.user.first_name}}</td>
+                    <td>{{item.Department}}</td>
+                    <td>{{item.Phone_number}}</td>
+                    <td>{{item.user.email}}</td>
+                    <td>{{item.DoB}}</td>
+                    <td>{{item.Photo}}</td>
+                    <td>{{item.Parent_name}}</td>
+                    <td>{{item.Contact_number}}</td>
+                    <td><a href="/manager/edit/student/{{item.id}}"><button>Edit</button></a></td>
+          </tr>
+          {% endfor %}
+</table>
+{% endif %}
+<h5>Stafs</h5><a href="add/staf"><button>Add + </button></a>
+{% if staf %}
+<table border="2">
+          <tr>
+          <th>#</th>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Dutty</th>
+          <th>Phone number</th>
+          <th>Email</th>
+          <th>Photo</th>
+          <th>Edit</th>
+          </tr>
+          {% for item in staf %}
+          <tr>      
+                    <td>{{forloop.counter}}
+                    <td>{{item.id}}</td>
+                    <td>{{item.user.first_name}}</td>
+                    <td>{{item.Dutty}}</td>
+                    <td>{{item.Phone_number}}</td>
+                    <td>{{item.user.email}}</td>
+                    <td>{{item.Photo}}</td>
+                    <td><a href="/manager/edit/staf/{{item.id}}"><button>Edit</button></a></td>
+          </tr>
+          {% endfor %}
+</table>
+{% endif %}
