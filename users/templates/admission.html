@@ -1,0 +1,74 @@
+<form method="post" action="#"  enctype="multipart/form-data">
+
+	<h2>Add Student detailes</h2>
+	<table  class="table table-hover table table-striped">
+	<tr>
+	<td >Name :</td>
+	<td><input class="form-control" type="text" placeholder="Enter Name" class="tb" name="name"  /></td>
+	</tr>
+    <td > Graden Name :</td>
+	<td><input class="form-control" type="text" placeholder="EnterName" class="tb" name="gn"  /></td>
+	</tr>
+	<tr>
+	<td >Place :</td>
+	<td><input  class="form-control" type="text" placeholder="place" class="tb" name="place"  /></td>
+	</tr>
+	<tr>
+	<td>Pin code:</td>
+	<td><input class="form-control" type="number" placeholder="Pin code" class="tb" name="pin" maxlength="6"  requird/></td>
+	</tr>
+    <tr>
+        <td>Post:</td>
+        <td><input class="form-control" type="text" placeholder="Post" class="tb" name="post" /></td>
+        </tr>
+
+
+        <tr>
+            <td>Department</td>
+            <td><select  class="form-control" name="select">
+                {% for i in data %}
+                    <option class="btn btn-secondary dropdown-toggle" value="{{ i.id }}">{{ i. }}</option>
+                {% endfor %}
+              </select></td>
+            </tr>
+	<tr>
+        <tr>
+            
+	<td >Gender :</td>
+	<td><input type="radio" id="html" name="fav_language" value="male">
+        <label for="html">male</label>
+        <input type="radio" name="fav_language" value="female">
+        <label>female</label>
+        <input type="radio" name="fav_language" value="other">
+        <label>other</label>
+    </td>
+	<tr>
+	<td >Blood Group :</td>
+	<td><input class="form-control" type="text" name="exp" /></td>
+	</tr>
+    <td >Email :</td>
+   <td><input  class="form-control" type="email" name="email"  required></td>
+	</tr>
+    <tr>
+        <td >Certificate:</td>
+        <td><input class="form-control-file" type="file" name="file" /></td>
+        </tr>
+        <tr>
+            <td > Phone no :</td>
+            <td><input class="form-control" type="number" name="no" pattern="[6789]{1}[0-9]{9}" placeholder="[6789]{1}[0-9]{9}" maxlength="10"  required/></td>
+            </tr>
+            <td >Graden Phone no :</td>
+            <td><input class="form-control" type="number" name="no" pattern="[6789]{1}[0-9]{9}" placeholder="[6789]{1}[0-9]{9}" maxlength="10"  required/></td>
+            </tr>
+            <td >Image:</td>
+            <td><input class="form-control-file" type="file" name="image"/></td>
+            </tr>
+
+	<tr>
+	<td></td>
+	<td>
+	<input class="btn btn-dark" type="reset"/>
+	<input class="btn btn-primary" type="submit" value="ADD"></td>
+	</tr>
+    </table>
+</form>
