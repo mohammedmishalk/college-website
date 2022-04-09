@@ -5,7 +5,7 @@
 
 <h5>Teachers</h5><a href="add/teacher"><button>Add + </button></a>
 {% if teachers %}
-<table border="2">
+<table  class="table table-hover table table-sm table table-striped">
           <tr>
           <th>#</th>
           <th>User ID</th>
@@ -29,14 +29,14 @@
                     <td>{{item.Phone_number}}</td>
                     <td>{{item.user.email}}</td>
                     <td>{{item.Photo}}</td>
-                    <td><a href="/manager/edit/teacher/{{item.id}}"><button>Edit</button></a></td>
+                    <td><a href="/manager/edit/teacher/{{item.id}}"><button class="btn btn-secondary">Edit</button></a></td>
           </tr>
           {% endfor %}
 </table>
 {% endif %}
 <h5>Students</h5><a href="add/student"><button>Add + </button></a>
 {% if students %}
-<table border="2">
+<table  class="table table-hover table table-sm table table-striped">
           <tr>
           <th>#</th>
           <th>User ID</th>
@@ -62,14 +62,14 @@
                     <td>{{item.Photo}}</td>
                     <td>{{item.Parent_name}}</td>
                     <td>{{item.Contact_number}}</td>
-                    <td><a href="/manager/edit/student/{{item.id}}"><button>Edit</button></a></td>
+                    <td><a href="/manager/edit/student/{{item.id}}"><button class="btn btn-secondary">Edit</button></a></td>
           </tr>
           {% endfor %}
 </table>
 {% endif %}
 <h5>Stafs</h5><a href="add/staf"><button>Add + </button></a>
 {% if staf %}
-<table border="2">
+<table  class="table table-hover table table-sm table table-striped">
           <tr>
           <th>#</th>
           <th>User ID</th>
@@ -89,7 +89,7 @@
                     <td>{{item.Phone_number}}</td>
                     <td>{{item.user.email}}</td>
                     <td>{{item.Photo}}</td>
-                    <td><a href="/manager/edit/staf/{{item.id}}"><button>Edit</button></a></td>
+                    <td><a href="/manager/edit/staf/{{item.id}}"><button class="btn btn-secondary">Edit</button></a></td>
           </tr>
           {% endfor %}
 </table>
