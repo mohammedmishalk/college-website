@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block views %}
+
+    <h3>Login Form</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username"><br>
+        <input type="password" placeholder="Password" name="password"><br>
+        <input type="submit" name="" value="Login">
+    </form>
+    {%if user.is_authenticated %}
+    hai
+    {% endif %}
+
+{% endblock views %}

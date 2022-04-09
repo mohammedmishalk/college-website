@@ -1,6 +1,4 @@
 import random
-import re
-from turtle import st
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import auth,User
@@ -40,7 +38,8 @@ def add_teacher(request):
         phone = request.POST['phone']
         username = usernameGenerater(name)
         password = name + str(phone[:5])
-        user = User.objects.create_user(username=username,first_name = name,password=password,email=email)
+        print(password)
+        user = User.objects.create_user(username=username,first_name = name,last_name ='teacher', password=password,email=email)
         user.save()
         Teachers(
             user = user,
@@ -65,7 +64,7 @@ def add_student(request):
         contact = request.POST['contact']
         username = usernameGenerater(name)
         password = name + str(phone[:5])
-        user = User.objects.create_user(username=username,first_name = name,password=password,email=email)
+        user = User.objects.create_user(username=username,first_name = name,last_name ='student', password=password,email=email)
         user.save()
         Students(
             user = user,
@@ -87,7 +86,7 @@ def add_staf(request):
         phone = request.POST['phone']
         username = usernameGenerater(name)
         password = name + str(phone[:5])
-        user = User.objects.create_user(username=username,first_name = name,password=password,email=email)
+        user = User.objects.create_user(username=username,first_name = name,last_name ='staf', password=password,email=email)
         user.save()
         Staf(
             user = user,
