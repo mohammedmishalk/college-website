@@ -1,10 +1,26 @@
-{% extends 'index.html' %}
+{% extends 'admin_index.html' %}
 {% block views %}
 
-<h3>Dashboard</h3>
+<style>
+    .heading{
+        width: 95%;
+        display: grid;
+        justify-content: center;
+        margin: 2rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: #3f4156;
+        color: #fff;
+    }
+    h3{
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
 
-<h5>Teachers</h5><a href="add/teacher"><button>Add + </button></a>
+<h3>Dashboard</h3>
 {% if teachers %}
+<div class="heading"><h4>Teachers</h4></div>
 <table  class="table table-hover table table-sm table table-striped">
           <tr>
           <th>#</th>
@@ -34,8 +50,9 @@
           {% endfor %}
 </table>
 {% endif %}
-<h5>Students</h5><a href="add/student"><button>Add + </button></a>
 {% if students %}
+
+<div class="heading"><h4>Students</h4></div>
 <table  class="table table-hover table table-sm table table-striped">
           <tr>
           <th>#</th>
@@ -67,8 +84,10 @@
           {% endfor %}
 </table>
 {% endif %}
-<h5>Stafs</h5><a href="add/staf"><button>Add + </button></a>
+
 {% if staf %}
+
+<div class="heading"><h4>Stafs</h4></div>
 <table  class="table table-hover table table-sm table table-striped">
           <tr>
           <th>#</th>

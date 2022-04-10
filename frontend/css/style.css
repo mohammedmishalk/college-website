@@ -158,7 +158,7 @@ nav .nav-wrapper{
 }
 
 nav ul li{
-	// margin: 0 1em;
+	 margin: 0 1em;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
@@ -183,7 +183,7 @@ nav ul li{
 }
 
 .logo-name .name h5{
-	// font-weight: bold;
+	font-weight: bold;
 	font-size: 2.3rem;
 	text-decoration: none;
 	color: rgb(50,50,50);
@@ -333,7 +333,7 @@ nav ul li{
 #announcement-list-previous.disabled,#announcement-list-next.disabled,#news-list-previous.disabled,#news-list-next.disabled,#events-list-previous.disabled,#events-list-next.disabled{
 	opacity: 0.5;
 	cursor:not-allowed;
-	// display: none;
+	display: none;
 }
 
 #home footer{
@@ -632,7 +632,7 @@ nav ul li{
 
 
 footer{
-// background-image: url("../img/footer.jpg");
+	background-image: url("../img/footer.jpg");
 	background-color: #F0F0F0;
 	background-size: cover;
 	background-position: top center;

@@ -25,3 +25,11 @@ class Staf(models.Model):
           Phone_number = models.CharField(max_length=10)
           Photo =models.ImageField(null=True, blank=True, upload_to="images/",default="images/example3.jpg")
 
+class Gallery(models.Model):
+    user = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    Photo =models.ImageField(null=False, upload_to="gallery/")
+    disc = models.CharField(max_length=1000)
+    created = models.DateField(auto_now_add=True)
+    accepted = models.BooleanField(default=False)
+
+

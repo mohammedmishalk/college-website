@@ -2,8 +2,12 @@ import random
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import auth,User
-from sitemanager.models import Staf, Students, Teachers
+import pywhatkit
+import time
+from sitemanager.models import Gallery, Staf, Students, Teachers
 from django.contrib.auth.decorators import login_required
+
+from users.models import notifications
 
 
 @login_required(login_url='/manager/admin_login/')
@@ -49,11 +53,11 @@ def add_teacher(request):
             Phone_number = phone,
             Photo = request.FILES['image']
         ).save()
+        sendUsername(phone,username,password)
     page = 1
     return render(request,"form_add.html",{'page':page})
 
 def add_student(request):
-    page = 2
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -75,10 +79,11 @@ def add_student(request):
             Contact_number =contact,
             Photo = request.FILES['photo']
         ).save()
+        sendUsername(phone,username,password)
+    page = 2
     return render(request,"form_add.html",{'page':page})
 
 def add_staf(request):
-    page = 3
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
@@ -94,6 +99,8 @@ def add_staf(request):
             Phone_number = phone,
             Photo = request.FILES['photo']
         ).save()
+        sendUsername(phone,username,password)
+    page = 3
     return render(request,"form_add.html",{'page':page})
 
 
@@ -155,9 +162,60 @@ def edit_staf(request,u_id):
     page = 3
     return render(request,"form_add.html",{'page':page,'data':data})
 
+def sendNotification(request):
+    user = request.user
+    if request.method == 'POST':
+        if user.last_name == "teacher" or user.last_name == "admin":
+            notifications(
+                user = user,
+                header = request.POST['title'],
+                content = request.POST['message'],
+                link = request.POST['ref']
+            ).save()
+    data = notifications.objects.all().order_by('-created')
+    return render(request,'create-notification.html',{'data':data})
+
+def gallery_action(request,pk,option):
+    data = Gallery.objects.get(pk = pk)
+    if option == 1:
+        data.accepted = True
+        data.save()
+    else:
+        data.delete()
+    return redirect('/manager/gallery/')
+
+def gallery(request):
+    if request.method == 'POST':
+        data = Gallery(user = request.user,
+        Photo = request.FILES['photo'],
+        disc = request.POST['disc'])
+        if request.user.last_name == 'admin':
+            data.accepted = True
+        data.save()
+    photos = Gallery.objects.all().order_by('-created')
+    return render(request,'gallery.html',{'data':photos})
+
+def sylabus(request):
+    return render(request,'add_sylabus.html')
+
+def timeTable(request):
+    return render(request,'add_time_table.html')
+
 def usernameGenerater(name):
     while True:
         username = name + str(random.randint(10,10000))
         if User.objects.filter(username=username).exists():
             continue
         return username
+
+def sendUsername(ph,us,ps):
+    crr = time.time()
+    timeobj = time.localtime(crr)
+    try:
+        pywhatkit.sendwhatmsg(f"+91{ph}",
+						f"username : {us} \n password : {ps}",
+						timeobj.tm_hour, timeobj.tm_min+1)
+        print("Successfully Sent!")
+    except:
+        print("An Unexpected Error!")
+

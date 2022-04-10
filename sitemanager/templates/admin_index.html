@@ -8,16 +8,17 @@
     <title>Coweb Admin</title>
 </head>
 <body>
-    <div>Slide bar</div>
+   {% include 'admin_sidebar.html' %}
 
-    <div><h1>content part</h1>
-        <div>
-            {% block views %}
-            {% endblock views %}
-        </div>
-
+   <div class="content-container">
+  
+    <div class="container-fluid">
+  
+        {% block views %}
+        {% endblock views %}
+  
     </div>
-   
+  </div>
     
 
 

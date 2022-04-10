@@ -1,0 +1,83 @@
+{% extends 'admin_index.html' %}
+{% block views %}
+<style>
+    .img-wrapper {  
+        height: fit-content;
+        width: fit-content;
+        overflow: hidden; 
+      }
+      
+      .inner-img {
+        transition: 0.3s;
+      }
+      
+      .inner-img:hover {
+        transform: scale(1.1);
+      }
+      
+      .img-wrapper {
+        display: inline-block;
+        box-sizing: border-box;
+      }
+      .container{
+          display:inline;
+      }
+      .card{
+          float:left;
+      }
+      h3{
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand"><h3>Collage Gallary</h3></a>
+      <form class="d-flex" action="" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class="form-control me-2" name="photo" type="file" aria-label="Search" required>
+        <div class="btn btn-outline-success" data-bs-toggle="collapse" href="#disc" role="button" aria-expanded="false" aria-controls="collapse">Submit</div>
+    </div>
+  </nav>
+  <div style="width: 90%;display: grid; justify-content: end; ">
+  <div class="collapse" id="disc" >
+    <div class="card card-body">
+      <input type="text" class="form-control" placeholder="Give a Small discription" name="disc" required>
+      <input type="submit" class="btn btn-outline-primary" name="" value="Add to Gallary">
+    </div>
+  </div>
+</form>
+</div>
+    {% if user.last_name == 'admin' %}
+    {% for item in data %}
+    {% if item.accepted %}
+    {% else %}
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img src="{{item.Photo.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">@{{item.user.first_name}}</h5>
+              <p class="card-text">{{item.disc}}</p>
+              <a href="{{item.id}}/1" class="btn btn-success">Add to Gallary</a>
+              <a href="{{item.id}}/2" class="btn btn-danger">Reject</a>
+            </div>
+        </div>
+    </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+<div class="row">
+{% for item in data %}
+{% if item.accepted %}
+<div class="img-wrapper">
+  <div class="card" style="width: 24rem;">
+    <img src="{{item.Photo.url}}" class="card-img-top inner-img" alt="...">
+</div></div>
+<br>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}
+

@@ -786,17 +786,10 @@ body{
   
     <!-- Interfaces adicionais -->
 
-    {% extends 'index.html' %}
-    {% block views %}
-    <h3>Login Form</h3>
     <form action="" method="post">
         {% csrf_token %}
-    
+    <div class="get-started" id="login-screen">
        <p>
-                    
-                    {% comment %} <span class="material-icons" id="login-logo">
-                        maps_ugc
-                    </span> {% endcomment %}
                     Log <span class="login-p-subtitle">in</span>
                  
                 </p>
@@ -809,11 +802,7 @@ body{
     </div>
   
 </form>
-{%if user.is_authenticated %}
-hai
-{% endif %}
-
-{% endblock views %}
+  
        
 
  

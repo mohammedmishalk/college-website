@@ -1,3 +1,6 @@
+{% extends 'admin_index.html' %}
+{% block views %}
+
 {% if page == 1 %}
 <h3>Add Teacher</h3>
     <form action="" method="post" enctype="multipart/form-data">
@@ -40,3 +43,5 @@
     <input class="btn btn-primary"  type="submit" value="Add">
 </form>
 {% endif %}
+
+{% endblock views %}
