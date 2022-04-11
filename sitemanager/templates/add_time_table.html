@@ -1,4 +1,41 @@
 {% extends 'admin_index.html' %}
 {% block views %}
-timetable
+<form method="post" action="" >
+    <table class="table table-hover">
+<tr>
+<td>Syllabus:</td>
+<td><input  class="form-control" type="text" id="username" name="username" ></td>
+  
+</tr>
+<tr>
+    <td>Teacher name:</td>
+      <td><select name="select">
+                {% for i in data %}
+                    <option value="{{ i.id }}">{{ i. }}</option>
+                {% endfor %}
+              </select></td>
+    </tr>   
+    <tr>
+        <td>Department name:</td>
+          <td><select name="select">
+                    {% for i in data %}
+                        <option value="{{ i.id }}">{{ i. }}</option>
+                    {% endfor %}
+                  </select></td>
+        </tr>      
+<br>
+<tr>
+    <td>Semister name:</td>
+      <td><select name="select">
+                {% for i in data %}
+                    <option value="{{ i.id }}">{{ i. }}</option>
+                {% endfor %}
+              </select></td>
+    </tr>   
+        
+<tr>
+<td><input class="btn btn-primary ml-3" type="submit" value="ADD"><td>
+</tr>
+    </table>
+</form>
 {% endblock %}

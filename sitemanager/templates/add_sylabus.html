@@ -1,14 +1,10 @@
 {% extends 'admin_index.html' %}
 {% block views %}
-<<form method="post" action="/hospial/admin_add_shedule_load_post/" >
+<form method="post" action="" >
     <table class="table table-hover">
 <tr>
 <td>Syllabus:</td>
-  <td><select name="select">
-            {% for i in data %}
-                <option value="{{ i.id }}">{{ i. }}</option>
-            {% endfor %}
-          </select></td>
+<td><input  class="form-control" type="text" id="username" name="username" ></td>
 </tr>   
 <br>
 <tr>
