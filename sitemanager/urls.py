@@ -13,6 +13,7 @@ urlpatterns = [
     path('add/staf',views.add_staf),
     path('sylabus',views.sylabus),
     path('time-table',views.timeTable),
+    path('time-table/fech',views.fech_time_table),
     path('notification',views.sendNotification),
     path('gallery',views.gallery),
     path('gallery/<int:pk>/<int:option>',views.gallery_action),

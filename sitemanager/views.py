@@ -1,5 +1,5 @@
 import random
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import auth,User
 import pywhatkit
@@ -240,6 +240,15 @@ def timeTable(request):
             ).save()
     teacher = Teachers.objects.all()
     return render(request,'add_time_table.html',{'dept':departments,'data':teacher})
+
+def fech_time_table(request):
+    dprt = request.POST['dprt']
+    Class = request.POST['Class']
+    teacher = request.POST['teacher']
+    data = TimeTable.objects.get(teacher = teacher ,dprt = dprt,Class = Class)
+    departments = Department.objects.all()
+    teacher = Teachers.objects.all()
+    return render(request,'add_time_table.html',{'dept':departments,'data':teacher,"table":data})
 
 def usernameGenerater(name):
     while True:

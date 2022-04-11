@@ -5,7 +5,7 @@ notification center
 {% if user.last_name == 'teacher'%}
 <form action="" method="post">
     {% csrf_token %}
-    <input type="text" name="title" placeholder="Message Title"><br>
+    <input type="text" name="title" class="form-control" placeholder="Message Title"><br>
     <input type="url" name="ref" placeholder="Link"><br>
     <textarea name="message" placeholder="enter notification" cols="30" rows="10"></textarea><br>
     <input type="submit" value="Send">
