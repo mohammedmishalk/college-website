@@ -1,3 +1,4 @@
+from msilib.schema import Class
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -31,5 +32,18 @@ class Gallery(models.Model):
     disc = models.CharField(max_length=1000)
     created = models.DateField(auto_now_add=True)
     accepted = models.BooleanField(default=False)
+
+class Department(models.Model):
+    name = models.CharField(max_length=50)
+    course = models.CharField(max_length=100)
+    HOD = models.ForeignKey(Teachers,on_delete=models.DO_NOTHING)    
+    teachers = models.ManyToManyField(Teachers,related_name='teachers')
+    course_fee = models.JSONField(default = list)
+
+class TimeTable(models.Model):
+    teacher = models.IntegerField()
+    dprt = models.IntegerField()
+    Class = models.IntegerField()
+    day = models.JSONField(default = dict)
 
 

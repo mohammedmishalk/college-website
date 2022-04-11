@@ -99,7 +99,11 @@
           <i class="fa fa-home" aria-hidden="true"></i> Dashboard
         </a>
       </li>
-      {% if user.last_name == 'admin' %}
+      <li>
+        <a href="/manager/dept">
+          <i class="fa fa-solid fa-book" aria-hidden="true"></i> Departments
+        </a>
+      </li> 
       <li>
         <a href="/manager/add/teacher">
           <i class="fa fa-solid fa-person-chalkboard" aria-hidden="true"></i> Add Teacher
@@ -115,7 +119,6 @@
           <i class="fa fa-solid fa-user" aria-hidden="true"></i> Add Staf
         </a>
       </li>
-      {% endif %}
       <li>
         <a href="/live-chat" target="_blank">
           <i class="fa fa-brands fa-rocketchat" aria-hidden="true"></i> Live Chat

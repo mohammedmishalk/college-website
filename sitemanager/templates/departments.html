@@ -1,0 +1,42 @@
+{% extends 'admin_index.html' %}
+{% block views %}
+
+
+<h3> Departments</h3>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr><form action="" method="post">
+        {% csrf_token %}
+        <th scope="col"><input type="text" name="name" placeholder="Department"></th>
+        <th scope="col"><input type="text" name="course" placeholder="course name"></th>
+        <th scope="col"><select name="hod">{% for teacher in teachers %}<option value={{teacher.id}}>{{teacher.user.first_name}}</option>{% endfor %}</select></th>
+        <th scope="col"><input type="submit" name="" value="Add new Department"></th>
+      </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name </th>
+          <th scope="col">Degree</th>
+          <th scope="col">HOD</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in data %}
+        <tr onclick="next_page({{item.id}})">
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.course}}</td>
+          <td>{{item.HOD.user.first_name}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+  <script>
+      function next_page(id){
+          alert("working")
+        window.location = '/manager/dept/'+id
+      }
+    </script>
+{% endblock %}

@@ -1,41 +1,141 @@
 {% extends 'admin_index.html' %}
 {% block views %}
-<form method="post" action="" >
-    <table class="table table-hover">
-<tr>
-<td>Syllabus:</td>
-<td><input  class="form-control" type="text" id="username" name="username" ></td>
-  
-</tr>
+<div class="container">
+    <div class="row">
+      <div class="col col-10 col-md-6">
+        <h3> Time Table </h3>
+<form method="post" action="">
+    {% csrf_token %}
+<table class="table table-hover">
 <tr>
     <td>Teacher name:</td>
-      <td><select name="select">
+      <td><select name="teacher">
                 {% for i in data %}
-                    <option value="{{ i.id }}">{{ i. }}</option>
+                    <option value="{{ i.id }}">{{ i.user.first_name }}</option>
                 {% endfor %}
               </select></td>
     </tr>   
     <tr>
         <td>Department name:</td>
-          <td><select name="select">
-                    {% for i in data %}
-                        <option value="{{ i.id }}">{{ i. }}</option>
+          <td><select name="dprt">
+                    {% for i in dept %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
                     {% endfor %}
                   </select></td>
         </tr>      
 <br>
 <tr>
     <td>Semister name:</td>
-      <td><select name="select">
-                {% for i in data %}
-                    <option value="{{ i.id }}">{{ i. }}</option>
-                {% endfor %}
+      <td><select name="Class">
+                    <option value=1>Ist SUM</option>
+                    <option value=2>IIst SUM</option>
+                    <option value=3>IIIst SUM</option>
+                    <option value=4>IVst SUM</option>
+                    <option value=5>Vst SUM</option>
+                    <option value=6>VIst SUM</option>
               </select></td>
     </tr>   
+    <tr>
+        <td>Monday</td>
+        <td>
+            <input type="checkbox" name='mon-time' id='m-p-1' value='P1'><label for="m-p-1"> P1</label>
+            <input type="checkbox" name='mon-time' id='m-p-2' value='P2'><label for="m-p-2"> P2</label>
+            <input type="checkbox" name='mon-time' id='m-p-3' value="P3"><label for="m-p-3"> P3</label>
+            <input type="checkbox" name='mon-time' id='m-p-4' value="P4"><label for="m-p-4"> P4</label>
+            <input type="checkbox" name='mon-time' id='m-p-5' value="P5"><label for="m-p-5"> P5</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Tuesday</td>
+        <td>
+            <input type="checkbox" name='tue-time' id='u-p-1' value='P1'><label for="u-p-1"> P1</label>
+            <input type="checkbox" name='tue-time' id='u-p-2' value='P2'><label for="u-p-2"> P2</label>
+            <input type="checkbox" name='tue-time' id='u-p-3' value="P3"><label for="u-p-3"> P3</label>
+            <input type="checkbox" name='tue-time' id='u-p-4' value="P4"><label for="u-p-4"> P4</label>
+            <input type="checkbox" name='tue-time' id='u-p-5' value="P5"><label for="u-p-5"> P5</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Wednesday</td>
+        <td>
+            <input type="checkbox" name='wed-time' id='w-p-1' value='P1'><label for="w-p-1"> P1</label>
+            <input type="checkbox" name='wed-time' id='w-p-2' value='P2'><label for="w-p-2"> P2</label>
+            <input type="checkbox" name='wed-time' id='w-p-3' value="P3"><label for="w-p-3"> P3</label>
+            <input type="checkbox" name='wed-time' id='w-p-4' value="P4"><label for="w-p-4"> P4</label>
+            <input type="checkbox" name='wed-time' id='w-p-5' value="P5"><label for="w-p-5"> P5</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Thursday</td>
+        <td>
+            <input type="checkbox" name='thu-time' id='t-p-1' value='P1'><label for="t-p-1"> P1</label>
+            <input type="checkbox" name='thu-time' id='t-p-2' value='P2'><label for="t-p-2"> P2</label>
+            <input type="checkbox" name='thu-time' id='t-p-3' value="P3"><label for="t-p-3"> P3</label>
+            <input type="checkbox" name='thu-time' id='t-p-4' value="P4"><label for="t-p-4"> P4</label>
+            <input type="checkbox" name='thu-time' id='t-p-5' value="P5"><label for="t-p-5"> P5</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Friday</td>
+        <td>
+            <input type="checkbox" name='fri-time' id='f-p-1' value='P1'><label for="f-p-1"> P1</label>
+            <input type="checkbox" name='fri-time' id='f-p-2' value='P2'><label for="f-p-2"> P2</label>
+            <input type="checkbox" name='fri-time' id='f-p-3' value="P3"><label for="f-p-3"> P3</label>
+            <input type="checkbox" name='fri-time' id='f-p-4' value="P4"><label for="f-p-4"> P4</label>
+            <input type="checkbox" name='fri-time' id='f-p-5' value="P5"><label for="f-p-5"> P5</label>
+        </td>
+    </tr>
         
 <tr>
 <td><input class="btn btn-primary ml-3" type="submit" value="ADD"><td>
 </tr>
     </table>
 </form>
+      </div>
+      <div class="col col-10 col-md-6">
+        <h3> Fech Time Table </h3>
+        <br>
+<form action="" method="get">
+    {% csrf_token %}
+<table class="table table-hover">
+    <tr>
+        <td>Teacher name:</td>
+        <td><select name="teacher">
+                {% for i in data %}
+                    <option value="{{ i.id }}">{{ i.user.first_name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>   
+    <tr>
+        <td>Department name:</td>
+        <td>
+            <select name="dprt">
+                {% for i in dept %}
+                    <option value="{{ i.id }}">{{ i.name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr> 
+    <tr>
+        <td>Semister name:</td>
+        <td>
+            <select name="Class">
+                <option value=1>Ist SUM</option>
+                <option value=2>IIst SUM</option>
+                <option value=3>IIIst SUM</option>
+                <option value=4>IVst SUM</option>
+                <option value=5>Vst SUM</option>
+                <option value=6>VIst SUM</option>
+            </select>
+        </td>
+    </tr>   
+    <tr>
+        <td><input type="submit" class='btn btn-primary ml-3' value="fech Date"></td>
+    </tr>
+<table>  
+    
+</form>
+      </div>
+
 {% endblock %}

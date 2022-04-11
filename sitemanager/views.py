@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import auth,User
 import pywhatkit
 import time
-from sitemanager.models import Gallery, Staf, Students, Teachers
+from sitemanager.models import Department, Gallery, Staf, Students, Teachers, TimeTable
 from django.contrib.auth.decorators import login_required
 
 from users.models import notifications
@@ -31,6 +31,22 @@ def admin_login(request):
         else:
             return HttpResponse('invalid username or password')
     return render(request,"admin_login.html")
+
+def dept(request):
+    if request.method == 'POST':
+        print(request.POST['hod'])
+        hod = Teachers.objects.get(pk = request.POST['hod'])
+        Department(name = request.POST['name'],
+        course = request.POST['course'],
+        HOD = hod,
+        ).save()
+    teachers = Teachers.objects.all()
+    data = Department.objects.all()
+    return render(request,'departments.html',{"teachers":teachers,"data":data})
+
+def dept_edit(request,pk):
+    data = Department.objects.get(pk = pk)
+    return render(request, 'dept_edit.html',{'data':data})
 
 def add_teacher(request):
     if request.method == 'POST':
@@ -182,7 +198,7 @@ def gallery_action(request,pk,option):
         data.save()
     else:
         data.delete()
-    return redirect('/manager/gallery/')
+    return redirect('/manager/gallery')
 
 def gallery(request):
     if request.method == 'POST':
@@ -199,7 +215,31 @@ def sylabus(request):
     return render(request,'add_sylabus.html')
 
 def timeTable(request):
-    return render(request,'add_time_table.html')
+    departments = Department.objects.all()
+    if request.method == 'POST':
+
+        week = {
+            "mon" : request.POST.getlist('mon-time'),
+            'tue' : request.POST.getlist('tue-time'),
+            'wed' : request.POST.getlist('wed-time'),
+            'thu' : request.POST.getlist('thu-time'),
+            'fri' : request.POST.getlist('fri-time'),
+        }
+        teacher = request.POST['teacher']
+        dprt = request.POST['dprt']
+        Class = request.POST['Class']
+        if TimeTable.objects.filter(teacher = teacher ,dprt = dprt,Class = Class).exists():
+            data = TimeTable.objects.get(teacher = teacher ,dprt = dprt,Class = Class)
+            data.day = week
+            data.save()
+        else:
+            TimeTable(teacher = request.POST['teacher'],
+            dprt = request.POST['dprt'],
+            Class = request.POST['Class'],
+            day = week
+            ).save()
+    teacher = Teachers.objects.all()
+    return render(request,'add_time_table.html',{'dept':departments,'data':teacher})
 
 def usernameGenerater(name):
     while True:

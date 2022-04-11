@@ -6,6 +6,8 @@ urlpatterns = [
     path("",views.dashboard,name="dashboard"),
     path("admin_login/",views.admin_login),
     path("logout/",userLogout),
+    path('dept',views.dept),
+    path('dept/<int:pk>',views.dept_edit),
     path('add/student',views.add_student),
     path('add/teacher',views.add_teacher),
     path('add/staf',views.add_staf),
