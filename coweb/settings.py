@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-68^f0m*%(=o%3^s15sc#tzfy97*6+##8_@omr)ovqex7lz7zad
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['f8d9-2401-4900-6145-1e85-693a-f24a-27d6-da88.ngrok.io']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sitemanager',
     'users',
     'chat',
+    'cowebui'
 ]
 
 MIDDLEWARE = [
@@ -131,6 +132,8 @@ USE_TZ = True
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS =(os.path.join(BASE_DIR,'static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

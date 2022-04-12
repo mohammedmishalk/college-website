@@ -1,0 +1,268 @@
+{% load static %}
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="" name="description"/>
+  <title>
+   PPTM Arts and Science College
+  </title>
+ </head>
+ <body class="home-drive">
+  <!--PRELOADER-->
+  <div id="top">
+  </div>
+  <!--*Header*-->
+  {% include 'home/navbar.html' %}
+  <!--* End Header*-->
+ </body>
+</html>
+<!-- Paradise Slider -->
+<div class="carousel slide ps_control_sbo swipe_x ps_easeOutInCubic" data-duration="2000" data-interval="5000" data-pause="hover" data-ride="carousel" id="fw_al_009">
+ <div class="carousel-inner" role="listbox">
+  <div class="item active">
+   <img alt="" src="{% static 'images/uploadpics/Banner_1594046656.jpg' %}"/>
+   <div class="fw_al_009_slide">
+    <h2 data-animation="animated fadeInRight">
+     PPTM Arts and Science College, Cherur
+    </h2>
+    <h4 data-animation="animated fadeInLeft">
+     Affiliated to the University of Calicut &amp; recognized by the Government of Kerala
+    </h4>
+    <a class="mt_btn_yellow" data-animation="animated fadeInRight" href="contact-us.html">
+     Contact Us
+    </a>
+   </div>
+  </div>
+  <div class="item">
+   <img alt="" src="{% static 'images/uploadpics/Banner_1594046667.jpg' %}"/>
+   <div class="fw_al_009_slide">
+    <h2 data-animation="animated fadeInRight">
+     PPTM Arts and Science College, Cherur
+    </h2>
+    <h4 data-animation="animated fadeInLeft">
+     Affiliated to the University of Calicut &amp; recognized by the Government of Kerala
+    </h4>
+    <a class="mt_btn_yellow" data-animation="animated fadeInRight" href="/contact">
+     Contact Us
+    </a>
+   </div>
+  </div>
+ </div>
+</div>
+<!--* End Blog*-->
+{% block views %}{% endblock views %}
+<!-- ======= Footer ======= -->
+{% include 'home/footer.html' %}
+<!-- End Footer -->
+<!-- back to top -->
+<a class="btn btn-primary btn-lg back-to-top" data-placement="left" href="#" id="back-to-top" role="button" title="">
+ <span class="fa fa-arrow-up">
+ </span>
+</a>
+<!--*Scripts*-->
+<script src="{% static 'js/jquery-3.2.1.min.js' %}">
+</script>
+<script src="{% static 'js/bootstrap.min.js' %}">
+</script>
+<script src="{% static 'js/jquery.parallax-1.1.3.js' %}">
+</script>
+<script src="{% static 'js/jquery.fancybox.pack.js' %}">
+</script>
+<script src="{% static 'js/jquery.easing.min.js' %}">
+</script>
+<script src="{% static 'js/wow.min.js' %}">
+</script>
+<script src="{% static 'js/jquery.nav.js' %}">
+</script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}">
+</script>
+<script src="{% static 'js/custom-magnificpopup.js' %}">
+</script>
+<script src="{% static 'js/slick.js' %}">
+</script>
+<script src="{% static 'js/slicknav.js' %}">
+</script>
+<script src="{% static 'js/custom-nav.js' %}">
+</script>
+<script src="{% static 'js/owl.carousel.min.js' %}">
+</script>
+<script src="{% static 'js/jquery.appear.js' %}">
+</script>
+<script src="{% static 'js/isotope.min.js' %}">
+</script>
+<script src="{% static 'js/jquery.countTo.js' %}">
+</script>
+<script src="{% static 'js/jquery-modal-video.min.js' %}">
+</script>
+<script src="{% static 'js/custom-modalvideo.js' %}">
+</script>
+<script src="{% static 'js/main.js' %}">
+</script>
+<script src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" type="text/javascript">
+</script>
+<script>
+ $(document).ready(function($) {
+$('.carousel-01').slick({
+autoplay: true,
+infinite: true,
+autoplaySpeed: 0,
+slidesToScroll: 1,
+slidesToShow: 1,
+arrows: false,
+cssEase: 'linear',
+speed: 10000,
+initialSlide: 1,
+draggable: false,
+});
+});
+</script>
+<script>
+ $(document).ready(function($) {
+$('.carousel-2').slick({
+autoplay: true,
+infinite: true,
+autoplaySpeed: 0,
+slidesToScroll: 1,
+slidesToShow: 3,
+arrows: false,
+cssEase: 'linear',
+speed: 10000,
+initialSlide: 1,
+draggable: false,
+});
+});
+</script>
+<script type="text/javascript">
+ function captchaCode() {
+var Numb1, Numb2, Numb3, Numb4, Code;     
+Numb1 = (Math.ceil(Math.random() * 10)-1).toString();
+Numb2 = (Math.ceil(Math.random() * 10)-1).toString();
+Numb3 = (Math.ceil(Math.random() * 10)-1).toString();
+Numb4 = (Math.ceil(Math.random() * 10)-1).toString();
+
+Code = Numb1 + Numb2 + Numb3 + Numb4;
+$("#captcha span").remove();
+$("#captcha input").remove();
+$("#captcha").append("<span id='code'>" + Code + "</span>");
+}
+
+$(function() {
+captchaCode();
+
+$('#contactForm').submit(function(){
+  var captchaVal = $("#code").text();
+  var captchaCode = $(".captcha").val();
+  if (captchaVal == captchaCode) {
+    $(".captcha").css({
+      "color" : "#609D29"
+    });
+  }
+  else {
+    $(".captcha").css({
+      "color" : "#CE3B46"
+    });
+  }
+  
+  
+  if ((captchaVal !== captchaCode) || (!emailFilter.test(emailText)) || (!nameFilter.test(nameText)) || (messageText < 50)) {
+    return false;
+  }
+  if ((captchaVal == captchaCode) && (emailFilter.test(emailText)) && (nameFilter.test(nameText)) && (messageText > 50)) {
+    $("#contactForm").css("display", "none");
+    $("#form").append("<h2>Message sent!</h2>");
+    return false;
+  }
+});       
+});
+</script>
+<script type="text/javascript">
+ function captchaCode() {
+    var Numb1, Numb2, Numb3, Numb4, Code;     
+    Numb1 = (Math.ceil(Math.random() * 10)-1).toString();
+    Numb2 = (Math.ceil(Math.random() * 10)-1).toString();
+    Numb3 = (Math.ceil(Math.random() * 10)-1).toString();
+    Numb4 = (Math.ceil(Math.random() * 10)-1).toString();
+    
+    Code = Numb1 + Numb2 + Numb3 + Numb4;
+    $("#captcha span").remove();
+    $("#captcha input").remove();
+    $("#captcha").append("<span id='code'>" + Code + "</span>");
+  }
+  
+  $(function() {
+    captchaCode();
+    
+    $('#contactForm').submit(function(){
+      var captchaVal = $("#code").text();
+      var captchaCode = $(".captcha").val();
+      if (captchaVal == captchaCode) {
+        $(".captcha").css({
+          "color" : "#609D29"
+        });
+      }
+      else {
+        $(".captcha").css({
+          "color" : "#CE3B46"
+        });
+      }
+      
+      
+      if ((captchaVal !== captchaCode) || (!emailFilter.test(emailText)) || (!nameFilter.test(nameText)) || (messageText < 50)) {
+        return false;
+      }
+      if ((captchaVal == captchaCode) && (emailFilter.test(emailText)) && (nameFilter.test(nameText)) && (messageText > 50)) {
+        $("#contactForm").css("display", "none");
+        $("#form").append("<h2>Message sent!</h2>");
+        return false;
+      }
+    });       
+  });
+</script>
+<script type="text/javascript">
+ // Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+</script>
+

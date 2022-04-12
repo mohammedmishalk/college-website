@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import auth,User
 import pywhatkit
 import time
-from sitemanager.models import Department, Gallery, Staf, Students, Teachers, TimeTable
+from sitemanager.models import Department, Gallery, Staf, Students, Syllabus, Teachers, TimeTable
 from django.contrib.auth.decorators import login_required
 
 from users.models import notifications
@@ -212,7 +212,19 @@ def gallery(request):
     return render(request,'gallery.html',{'data':photos})
 
 def sylabus(request):
-    return render(request,'add_sylabus.html')
+    if request.method == 'POST':
+        dprt = request.POST['dpt']
+        if Syllabus.objects.filter(dprt = dprt).exists():
+            sylabus_obj = Syllabus.objects.get(dprt = dprt)
+            sylabus_obj.pdf = pdf = request.FILES['pdf']
+            sylabus_obj.save()
+        else:
+            Syllabus(
+                dprt = request.POST['dpt'],
+                pdf = request.FILES['pdf']
+            ).save()
+    data = Department.objects.all()
+    return render(request,'add_sylabus.html',{'data':data})
 
 def timeTable(request):
     departments = Department.objects.all()

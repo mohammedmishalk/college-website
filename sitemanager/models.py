@@ -2,6 +2,7 @@ from msilib.schema import Class
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Students(models.Model):
           user = models.ForeignKey(User,on_delete=models.CASCADE)
           Department = models.CharField(max_length= 20,null=True)
@@ -45,5 +46,11 @@ class TimeTable(models.Model):
     dprt = models.IntegerField()
     Class = models.IntegerField()
     day = models.JSONField(default = dict)
+
+class Syllabus(models.Model):
+    dprt = models.IntegerField()
+    pdf =models.FileField(null=False, upload_to="pdf/")
+
+
 
 

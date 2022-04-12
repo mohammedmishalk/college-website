@@ -1,0 +1,82 @@
+{% extends 'home/index.html' %}
+{% block views %}
+     
+<section id="the-gallery" class="wide-gallery inner-gallery section-inner">
+  <div class="container">
+  <div class="blog_post_sec">
+  <div class="blog_post_inner">
+  <div class="row carousel-2">
+</div></div></div>                        
+                <div class="row">
+                  <div class="row ">
+                     <center>   <u>  <h3>College Gallery</h3></u></center> </div></div>  <div class="row ge_second">
+                      {% for item in data %}
+                  <div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="{{item.Photo.url}}"  > 
+                    <img src="{{item.Photo.url}}" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div>
+                  {% endfor %}
+                  <div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/2.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/2.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div><div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/23.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/23.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div><div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/24.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/24.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div><div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/26.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/26.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div><div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/28.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/28.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div><div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/30.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/30.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div><div class="col-sm-3 mix">
+                  <div class="item port-popup">
+                
+                   <a href="http://www.pptmcollegecherur.com/source/ImageGallery/ACADEMICS/31.jpg"  > 
+                    <img src="http://www.pptmcollegecherur.com/thumbs/medium/ImageGallery/ACADEMICS/31.jpg" > 
+                    <i class="fa fa-search"></i>  
+                    </a>
+                   </div>
+                  </div></div></div> 
+</section>
+{% endblock %}

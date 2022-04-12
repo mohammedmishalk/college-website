@@ -2,12 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
-from sitemanager.models import Gallery
+from sitemanager.models import Department, Gallery, Syllabus, Teachers
 
 from users.models import notifications
-
-def home(request):
-    return render(request,'home/index.html')
 
 def gallery(request):
     if request.method == 'POST':
@@ -21,15 +18,16 @@ def gallery(request):
     photos = Gallery.objects.all().order_by('-created')
     return render(request,'home/gallery.html',{'data':photos,"waiting":waiting})
 
-def admission(request):
-    return render(request,'admission/admissin_login.html')
 
-def admUserData(request):
-    return render(request,'admission/admission.html')
-def admUserLogin(request):
-    return render(request,'admission/login-form.html')
+def sylabus(request):
+    if request.user.last_name == 'teacher':
+        data = Teachers.objects.get(user = request.user) 
+        dep = Department.objects.get(name = data.Department)
+        sylabus_obj = Syllabus.objects.get(dprt = dep.id)
+    return render(request,'sylabus.html',{"data":sylabus_obj,"course":dep.course})
 
-
+def timeTable(request):
+    return render(request,'time-table.html')
 
 def userLogin(request):
     if request.method == "POST":

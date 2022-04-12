@@ -6,9 +6,9 @@ notification center
 <form action="" method="post">
     {% csrf_token %}
     <input type="text" name="title" class="form-control" placeholder="Message Title"><br>
-    <input type="url" name="ref" placeholder="Link"><br>
-    <textarea name="message" placeholder="enter notification" cols="30" rows="10"></textarea><br>
-    <input type="submit" value="Send">
+    <input type="url" name="ref" class="form-control" placeholder="Link"><br>
+    <textarea name="message" class="form-control" placeholder="enter notification" cols="30" rows="10"></textarea><br>
+    <input type="submit" class="btn btn-primary" value="Send">
 </form>
 {% endif %}
 <div><h2>notifications</h2>
