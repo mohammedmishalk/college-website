@@ -10,54 +10,32 @@
   <link href="{% static 'css/plugin.css' %}" rel="stylesheet" type="text/css"/>
   <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" type="text/css"/>
   <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="resources/stylesheet" type="text/css">
-   <!--Font Icons-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link href="{% static 'css/flaticon1.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="{% static 'css/flaticon1.css' %}" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <style>
+    i{
+      color: black;
+    }
+    a{
+      color: #000;
+    }
+    .feature-title{
+      visibility: visible;
+    }
+    .text-sm{
+      visibility: visible;
+    }
+    #p-d{
+      margin-top: 2rem;
+    }
+  </style>
 
 </head>
-<header id="inner-navigation">
-    <!-- top bar -->
-    <div class="topbar-section">
-     <div class="container">
-      <div class="topbar-inner">
-       <div class="custom header-top">
-        <div class="top-bar-left pull-left">
-         <ul>
-          <li>
-           <i class="fa fa-phone">
-           </i>
-           Phone: 9061853090,9633380487
-          </li>
-          <li>
-           <i class="fa fa-envelope">
-           </i>
-           Email: pptmcollegecherur@gmail.com
-          </li>
-         </ul>
-        </div>
-        <div class="top-bar-right pull-right">
-         <ul>
-          <li>
-           <a href="https://pptm.embase.in/admission/#/home">
-            Apply
-           </a>
-          </li>
-          <li>
-           <a href="/user">
-            Login
-           </a>
-          </li>
-          <li>
-           <a href="/manager">
-            Admin-Login
-           </a>
-          </li>
-         </ul>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
+<header id="inner-navigation" >
     <!-- navbar start -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow">
      <div class="container">
@@ -68,7 +46,7 @@
       </div>
       <div class="navbar-nav-wrapper pull-right" id="navbar">
        <ul class="nav navbar-nav navbar-right" id="responsive-menu">
-        <li class="home active">
+        <li class="home active section-paragraph">
          <a href="/">
           Home
          </a>
@@ -185,6 +163,30 @@
          <a href="/contact">
           contact us
          </a>
+        </li>
+        <li class=".active.">
+          <a href="" target="_self">
+           Login
+           <i class="fa fa-angle-down">
+           </i>
+          </a>
+          <ul>
+           <li>
+            <a href="/user/">
+             Student Login
+            </a>
+           </li>
+           <li>
+            <a href="/user/">
+             Teacher Login
+            </a>
+           </li>
+           <li>
+            <a href="/manager/">
+             Admin Login
+            </a>
+           </li>
+          </ul>
         </li>
        </ul>
       </div>

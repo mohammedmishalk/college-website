@@ -1,0 +1,221 @@
+{% extends 'views/index.html' %}
+{% block views %}
+{% load static %}
+<div class="is-boxed has-animations">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+								<img class="header-logo-image asset-light" src="{% static 'images/UI/logo-light.svg' %} " alt="Logo">
+								<img class="header-logo-image asset-dark" src="{% static 'images/UI/logo-dark.svg' %}" alt="Logo">
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        <h1 class="hero-title mt-0">PPTM Arts and Science College, Cherur</h1>
+	                        <p class="hero-paragraph">Affiliated to the University of Calicut & recognized by the Government of Kerala</p>
+	                        <div class="hero-cta">
+								<a class="button button-primary" href="#">Contact</a>
+							</div>
+						</div>
+						<div class="hero-media">
+							<div class="header-illustration">
+								<img class="header-illustration-image asset-light" src="{% static 'images/UI/header-illustration-light.svg' %}" alt="Header illustration">
+								<img class="header-illustration-image asset-dark" src="{% static 'images/UI/header-illustration-dark.svg' %}" alt="Header illustration">
+							</div>
+							<div class="hero-media-illustration">
+								<img class="hero-media-illustration-image asset-light" src="{% static 'images/UI/hero-media-illustration-light.svg' %}" alt="Hero media illustration">
+								<img class="hero-media-illustration-image asset-dark" src="{% static 'images/UI/hero-media-illustration-dark.svg' %}" alt="Hero media illustration">
+							</div>
+							<div class="hero-media-container">
+								<img class="hero-media-image asset-light" style="max-width: 650px; max-height: 700px;" src="{% static 'images/UI/Banner_02.jpg' %}" alt="Hero media">
+								<img class="hero-media-image asset-dark" style="max-width: 650px; max-height: 700px;" src="{% static 'images/UI/Banner_01.jpg' %}" alt="Hero media">
+							</div>
+						</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features section">
+                <div class="container">
+					<div class="features-inner section-inner has-bottom-divider">
+						<div class="features-header text-center">
+							<div class="container-sm">
+								<h2 class="section-title mt-0">Welcome to PPTM</h2>
+	                            <p class="section-paragraph">Panakkad Pookoya Thangal Memorial Arts & Science College, Cherur (PPTM College) was started in 2013-14 academic year. </p>
+								<div class="features-image">
+									<img class="features-illustration asset-dark" src="{% static 'images/UI/features-illustration-dark.svg' %}" alt="Feature illustration">
+									<img class="features-box asset-dark" style="max-height: 400px;" src="{% static 'images/UI/pptm.jpg' %}" alt="Feature box">
+									<img class="features-illustration asset-dark" src="{% static 'images/UI/features-illustration-top-dark.svg' %}" alt="Feature illustration top">
+									<img class="features-illustration asset-light" src="{% static 'images/UI/features-illustration-light.svg' %}" alt="Feature illustration">
+									<img class="features-box asset-light" style="max-height: 400px;" src="{% static 'images/UI/pptm.jpg' %}" alt="Feature box">
+									<img class="features-illustration asset-light" src="{% static 'images/UI/features-illustration-top-light.svg' %}" alt="Feature illustration top">
+								</div>
+							</div>
+                        </div>
+                        <div class="features-wrap">
+								<h2 class="section-title mt-0">Learn More About PPTM</h2>
+	                            <p class="section-paragraph">Affiliated to the University of Calicut & recognized by the Government of Kerala</p>
+                            <div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img class="asset-light" src="{% static 'images/UI/feature-01-light.svg' %}" alt="Feature 01">
+										<img class="asset-dark" src="{% static 'images/UI/feature-01-dark.svg' %}" alt="Feature 01">
+                                    </div>
+									<div class="feature-content">
+                                    	<h3 class="feature-title mt-0" >Mission</h3>
+                                    	<p class="text-sm mb-0">Identifying the latent talents of the students and support them to attain academic moral and cultural aptitudes in their lives. </p>
+									</div>
+								</div>
+                            </div>
+							<div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img class="asset-light" src="{% static 'images/UI/feature-02-light.svg' %}" alt="Feature 02">
+										<img class="asset-dark" src="{% static 'images/UI/feature-02-dark.svg' %}" alt="Feature 02">
+                                    </div>
+									<div class="feature-content">
+                                    	<h3 class="feature-title mt-0">Vission</h3>
+                                    	<p class="text-sm mb-0">To provide quality education to become the college a centre of excellence.</p>
+									</div>
+								</div>
+                            </div>
+							<div class="feature is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img class="asset-light" src="{% static 'images/UI/feature-03-light.svg' %}" alt="Feature 03">
+										<img class="asset-dark" src="{% static 'images/UI/feature-03-dark.svg' %}" alt="Feature 03">
+                                    </div>
+									<div class="feature-content">
+                                    	<h3 class="feature-title mt-0">Focus </h3>
+                                    	<p class="text-sm mb-0">We offer career-focused courses that prepare you to jump into a good career.</p>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+			<section class="choose_us" id="choose_us">
+				<div class="container">
+				 <div class="row">
+				  <div class="col-xs-12">
+				   <!-- section title -->
+				   <div class="inner-heading text-center">
+					<h2>
+					 College
+					 <span>
+					  Faciities
+					 </span>
+					</h2>
+					<p class="mar-0">
+					 Affiliated to the University of Calicut &amp; recognized by the Government of Kerala
+					</p>
+				   </div>
+				  </div>
+				 </div>
+				 <div class="row">
+				  <div class="col-md-4 col-xs-12">
+				   <div class="safe-list">
+					<div class="choose-list mar-bottom-30">
+					 <i class="fa fa-book">
+					 </i>
+					 <h3>
+					  Library
+					 </h3>
+					 <p>
+					  Libraries are backbone of any civilized society and heart of any academic
+					 </p>
+					</div>
+				   </div>
+				  </div>
+				  <div class="col-md-4 col-xs-12">
+				   <div class="safe-list">
+					<div class="choose-list mar-bottom-30">
+					 <i class="fa fa-futbol-o">
+					 </i>
+					 <h3>
+					  Sports
+					 </h3>
+					 <p>
+					  Some people imagine the roar of a crowd at a packed football
+					 </p>
+					</div>
+				   </div>
+				  </div>
+				  <div class="col-md-4 col-xs-12">
+				   <div class="safe-list">
+					<div class="choose-list mar-bottom-30">
+					 <i class="fa fa-video-camera">
+					 </i>
+					 <h3>
+					  Smart Classrooms
+					 </h3>
+					 <p>
+					  Technology enhanced classrooms that foster opportunities for teaching and
+					 </p>
+					</div>
+				   </div>
+				  </div>
+				  <div class="col-md-4 col-xs-12">
+				   <div class="safe-list">
+					<div class="choose-list mar-bottom-30">
+					 <i class="fa fa-building-o">
+					 </i>
+					 <h3>
+					  Auditorium
+					 </h3>
+					 <p>
+					  The part of a public building where an audience sits, as distinct from the stage
+					 </p>
+					</div>
+				   </div>
+				  </div>
+				  <div class="col-md-4 col-xs-12">
+				   <div class="safe-list">
+					<div class="choose-list mar-bottom-30">
+					 <i class="fa fa-flask">
+					 </i>
+					 <h3>
+					  Laboratories
+					 </h3>
+					 <p>
+					  &gt;A Science lab is a workplace for the conduct of scientific research. It helps
+					 </p>
+					</div>
+				   </div>
+				  </div>
+				  <div class="col-md-4 col-xs-12">
+				   <div class="safe-list">
+					<div class="choose-list mar-bottom-30">
+					 <i class="fa fa-desktop">
+					 </i>
+					 <h3>
+					  Computer Lab
+					 </h3>
+					 <p>
+					  There are 30 computers in our labs currently. They are state-of-the-art with
+					 </p>
+					</div>
+				   </div>
+				  </div>
+				 </div>
+				</div>
+			   </section>
+        </main>
+    </div>
+
+</div>
+{% endblock %}
+

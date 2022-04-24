@@ -169,7 +169,7 @@ header#inner-navigation {
   
 #inner-navigation .navbar.navbar-default .logo1-img{display: none;} 
 
-#inner-navigation .nav.navbar-nav > li > a{color: #fff; font-size: 16px; letter-spacing: 0;}
+#inner-navigation .nav.navbar-nav > li > a{color: black; font-size: 16px; letter-spacing: 0;}
 
 .navbar-right{margin-right: 0px;}
 
@@ -4406,15 +4406,15 @@ div#home-banner:before {
 
 /*HOMEPAGE 2*/
 
-.home-drive .topbar-inner ul li {color: #fff;}
+.home-drive .topbar-inner ul li {color: #000;}
 
-.home-drive .top-bar-right ul li a {color: #fff;}
+.home-drive .top-bar-right ul li a {color: #000;}
 
 .home-drive .logo a{color: #f4ca59;}
 
 .home-drive .navbar.navbar-default .navbar-collapse ul.nav.navbar-nav li a, 
 .home-drive #inner-navigation .nav.navbar-nav > li > a{
-  color: #fff;
+  color: #000;
 }
 
 .home-drive #inner-navigation .nav.navbar-nav li .get-quote a.mt_btn_yellow:hover, .home-3 #inner-navigation .nav.navbar-nav li .get-quote a.mt_btn_yellow:hover{background: transparent;}
