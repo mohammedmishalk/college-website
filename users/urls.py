@@ -4,7 +4,7 @@ from django.urls import path
 urlpatterns = [
     path('',views.dashboard),
     path('gallery/',views.gallery),
-    path('leave-request',views.leaveRequest),
+    path('leave-request',views.leave_request),
     path('time-table',views.timeTable),
     path('sylabus',views.sylabus),
     path('in-box',views.inBox),

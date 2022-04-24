@@ -7,18 +7,18 @@ import time
 from sitemanager.models import Department, Gallery, Staf, Students, Syllabus, Teachers, TimeTable
 from django.contrib.auth.decorators import login_required
 
-from users.models import notifications
+from users.models import leaveRequest, notifications
 
 
 @login_required(login_url='/manager/admin_login/')
 def dashboard(request):
-    if request.user.is_staff:
+    if request.user.is_superuser:
         teachers = Teachers.objects.all()
         students = Students.objects.all()
         staf = Staf.objects.all()
         context ={'teachers':teachers,'students':students,'staf':staf}
         return render(request,"admin_dashboard.html",context)
-    return HttpResponse("You are not a authenticated user")
+    return redirect('/user/')
 
 def admin_login(request):
     if request.method =='POST':
@@ -34,7 +34,6 @@ def admin_login(request):
 
 def dept(request):
     if request.method == 'POST':
-        print(request.POST['hod'])
         hod = Teachers.objects.get(pk = request.POST['hod'])
         Department(name = request.POST['name'],
         course = request.POST['course'],
@@ -58,7 +57,6 @@ def add_teacher(request):
         phone = request.POST['phone']
         username = usernameGenerater(name)
         password = name + str(phone[:5])
-        print(password)
         user = User.objects.create_user(username=username,first_name = name,last_name ='teacher', password=password,email=email)
         user.save()
         Teachers(
@@ -70,8 +68,22 @@ def add_teacher(request):
             Photo = request.FILES['image']
         ).save()
         sendUsername(phone,username,password)
+        return redirect("/manager/")
     page = 1
     return render(request,"form_add.html",{'page':page})
+
+def leaveRequestView(request):
+    data = leaveRequest.objects.filter(status = 'pending')
+    return render(request,'leaveRequestView.html',{"data":data})
+
+def leaveRequestcontrol(request,pk,option):
+    data = leaveRequest.objects.get(id = pk)
+    if option == 1:
+        data.status = 'Accepted'
+    else:
+        data.status = 'Rejected'
+    data.save()
+    return redirect('/manager/in-box')
 
 def add_student(request):
     if request.method == 'POST':
@@ -96,8 +108,10 @@ def add_student(request):
             Photo = request.FILES['photo']
         ).save()
         sendUsername(phone,username,password)
+        return redirect("/manager/")
     page = 2
-    return render(request,"form_add.html",{'page':page})
+    department =  Department.objects.all()
+    return render(request,"form_add.html",{'page':page,"dep":department})
 
 def add_staf(request):
     if request.method == 'POST':
@@ -116,6 +130,7 @@ def add_staf(request):
             Photo = request.FILES['photo']
         ).save()
         sendUsername(phone,username,password)
+        return redirect("/manager/")
     page = 3
     return render(request,"form_add.html",{'page':page})
 
@@ -159,7 +174,8 @@ def edit_student(request,u_id):
         data.user.save()
         return redirect('/manager')
     page = 2
-    return render(request,"form_add.html",{'page':page,'data':data})
+    department =  Department.objects.all()
+    return render(request,"form_add.html",{'page':page,'data':data,"dep":department})
 
 def edit_staf(request,u_id):
     data = Staf.objects.get(pk = u_id)
@@ -178,10 +194,14 @@ def edit_staf(request,u_id):
     page = 3
     return render(request,"form_add.html",{'page':page,'data':data})
 
+def remove_user(request,u_id):
+    user = User.objects.get(id = u_id).delete()
+    return redirect('/manager/')
+
 def sendNotification(request):
     user = request.user
     if request.method == 'POST':
-        if user.last_name == "teacher" or user.last_name == "admin":
+        if user.is_superuser:
             notifications(
                 user = user,
                 header = request.POST['title'],
@@ -216,7 +236,7 @@ def sylabus(request):
         dprt = request.POST['dpt']
         if Syllabus.objects.filter(dprt = dprt).exists():
             sylabus_obj = Syllabus.objects.get(dprt = dprt)
-            sylabus_obj.pdf = pdf = request.FILES['pdf']
+            sylabus_obj.pdf = request.FILES['pdf']
             sylabus_obj.save()
         else:
             Syllabus(
@@ -278,5 +298,5 @@ def sendUsername(ph,us,ps):
 						timeobj.tm_hour, timeobj.tm_min+1)
         print("Successfully Sent!")
     except:
-        print("An Unexpected Error!")
+        print("An Unexpected Error! ")
 

@@ -8,3 +8,10 @@ class notifications(models.Model):
     content = models.TextField()
     created = models.DateField(auto_now_add=True)
     link = models.URLField()
+
+class leaveRequest(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    from_date = models.DateField()
+    to_date = models.DateField()
+    reason = models.TextField(null=True)
+    status = models.CharField(max_length=10,default="pending")

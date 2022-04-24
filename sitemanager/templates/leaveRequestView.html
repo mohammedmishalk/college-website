@@ -1,0 +1,29 @@
+{% extends 'admin_index.html' %}
+{% block views %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Reason</th>
+        <th scope="col">from</th>
+        <th scope="col">to</th>
+        <th scope="col">Accept</th>
+        <th scope="col">Reject</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.user.first_name}}</td>
+        <td>{{item.reason}}</td>
+        <td>{{item.from_date}}</td>
+        <td>{{item.to_date}}</td>
+        <td> <a href="/manager/in-box/{{item.id}}/1" class="btn btn-success">Accept</a></td>
+        <td><a href="/manager/in-box/{{item.id}}/2" class="btn btn-danger">Reject</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block views %}
+<style>
+    .img-wrapper {  
+        height: fit-content;
+        width: fit-content;
+        overflow: hidden; 
+      }
+      
+      .inner-img {
+        transition: 0.3s;
+      }
+      
+      .inner-img:hover {
+        transform: scale(1.1);
+      }
+      
+      .img-wrapper {
+        display: inline-block;
+        box-sizing: border-box;
+      }
+      .container{
+          display:inline;
+      }
+      .card{
+          float:left;
+      }
+      h3{
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand"><h3>Collage Gallary</h3></a>
+      <form class="d-flex" action="" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class="form-control me-2" name="photo" type="file" aria-label="Search" required>
+        <div class="btn btn-outline-success" data-bs-toggle="collapse" href="#disc" role="button" aria-expanded="false" aria-controls="collapse">Submit</div>
+    </div>
+  </nav>
+  <div style="width: 90%;display: grid; justify-content: end; ">
+  <div class="collapse" id="disc" >
+    <div class="card card-body">
+      <input type="text" class="form-control" placeholder="Give a Small discription" name="disc" required>
+      <input type="submit" class="btn btn-outline-primary" name="" value="Add to Gallary">
+    </div>
+  </div>
+</form>
+</div>

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-68^f0m*%(=o%3^s15sc#tzfy97*6+##8_@omr)ovqex7lz7zad
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['f8d9-2401-4900-6145-1e85-693a-f24a-27d6-da88.ngrok.io']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -88,8 +88,11 @@ WSGI_APPLICATION = 'coweb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Coweb',
+        'USER':'postgres',
+        'PASSWORD':'123456',
+        'HOST':'localhost',
     }
 }
 

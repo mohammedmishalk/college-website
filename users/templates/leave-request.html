@@ -1,6 +1,33 @@
 {% extends 'index.html' %}
 {% block views %}
-    <form method="post" action="#" >
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Status</th>
+        <th scope="col">From Date</th>
+        <th scope="col">To date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in data %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td {% if item.status == 'pending' %}
+        class='text-warning' 
+        {% elif item.status == 'Accepted' %}
+        class="text-success"
+        {% else %}
+        class="text-danger"
+        {% endif %}>{{item.status}}</td>
+        <td>{{item.from_date}}</td>
+        <td>{{item.to_date}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <form method="post" action="" >
+        {% csrf_token %}
         <table class="table table-hover">
     <br>
     <h3><strong>Leave request form</strong></h3>
@@ -21,5 +48,5 @@
     <td><input class="btn btn-primary ml-3" type="submit" value="Request"><td>
     </tr>
         </table>
-    </form>v
+    </form>
 {% endblock  %}

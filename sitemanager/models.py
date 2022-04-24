@@ -13,7 +13,7 @@ class Students(models.Model):
           Contact_number =models.CharField(max_length=10)
 
 class Teachers(models.Model):
-          user = models.ForeignKey(User,on_delete=models.CASCADE)
+          user = models.ForeignKey(User,on_delete=models.CASCADE,db_constraint=False)
           Department = models.CharField(max_length= 20,null=True)
           Subject = models.CharField(max_length=30)
           Qualifications = models.CharField(max_length=100)

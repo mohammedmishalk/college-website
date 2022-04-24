@@ -5,42 +5,49 @@
 <h3>Add Teacher</h3>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input class="form-control"  type="text" placeholder="Enter full name" name="name" value="{{data.user.first_name}}"><br>
-        <input class="form-control"  type="text" name="dpt" placeholder="Department" value="{{data.Department}}"><br>
-        <input class="form-control"  type="text" name="subject" placeholder="Subject" value="{{data.Subject}}"><br>
-        <input class="form-control"  type="text" name="qualifications" placeholder="Qualifications" value="{{data.Qualifications}}"><br>
-        <input class="form-control"  type="tel" name="phone" placeholder="Phone number" value="{{data.Phone_number}}"><br>
-        <input class="form-control"  type="email" name="email" placeholder="Email address" value="{{data.user.email}}"><br>
+        <input class="form-control"  type="text" placeholder="Enter full name" name="name" value="{{data.user.first_name}}" required><br>
+        <input class="form-control"  type="text" name="dpt" placeholder="Department" value="{{data.Department}}" required><br>
+        <input class="form-control"  type="text" name="subject" placeholder="Subject" value="{{data.Subject}}" required><br>
+        <input class="form-control"  type="text" name="qualifications" placeholder="Qualifications" value="{{data.Qualifications}}" required><br>
+        <input class="form-control"  type="tel" name="phone" placeholder="Phone number" value="{{data.Phone_number}}" required><br>
+        <input class="form-control"  type="email" name="email" placeholder="Email address" value="{{data.user.email}}" required><br>
         <a href="{{data.Photo.url}}">view</a><br>
-        <input class="form-control"  type="file" name="image"><br>
-        <input class="form-control"  type="submit" value="Add">
+        <input class="form-control"  type="file" name="image" required><br>
+        <input class="btn btn-primary" type="submit" value="Add">
+        <a href="/manager/delete/user/{{data.user.id}}" class="btn btn-danger">Delete</a>
     </form>
 {% elif page == 2 %}
 <h3>Add Student</h3>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input class="form-control"  type="text" placeholder="Enter full name" name="name" value="{{data.user.first_name}}"><br>
-    <input class="form-control"  type="text" name="dpt" placeholder="Department" value="{{data.Department}}"><br>
-    <input class="form-control"  type="tel" name="phone" placeholder="Phone number" value="{{data.Phone_number}}"><br>
-    <input class="form-control"  type="email" name="email" placeholder="Email address" value="{{data.user.email}}"><br>
-    <input class="form-control"  type="date" name="dob" placeholder="date of birth"> {{data.DoB}}<br>
-    <input class="form-control"  type="text" name="parent" placeholder="name of parent" value="{{data.Parent_name}}"><br>
-    <input class="form-control"  type="tel" name="contact" placeholder="Contact number" value="{{data.Contact_number}}"><br>
+    <select name="dpt" id="">
+        {% for item in dep %}
+        <option value="{{item.id}}">{{item.name}}</option>
+        {% endfor %}
+    </select>
+    <input class="form-control"  type="tel" name="phone" placeholder="Phone number" value="{{data.Phone_number}}" required><br>
+    <input class="form-control"  type="email" name="email" placeholder="Email address" value="{{data.user.email}}" required><br>
+    <input class="form-control"  type="date" name="dob" placeholder="date of birth" required> {{data.DoB}}<br>
+    <input class="form-control"  type="text" name="parent" placeholder="name of parent" value="{{data.Parent_name}}" required><br>
+    <input class="form-control"  type="tel" name="contact" placeholder="Contact number" value="{{data.Contact_number}}" required><br>
     <a href="{{data.Photo.url}}">view</a><br>
-    <input class="form-control"  type="file" name="photo"><br>
+    <input class="form-control"  type="file" name="photo" required><br>
     <input class="btn btn-primary"   type="submit" value="Add">
+    <a href="/manager/delete/user/{{data.user.id}}" class="btn btn-danger">Delete</a>
 </form>
 {% else %}
 <h3>Add Staf</h3>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <input class="form-control"  type="text" placeholder="Enter full name" name="name" value="{{data.user.first_name}}"><br>
-    <input class="form-control"  type="text" name="dutty" placeholder="Job" value="{{data.Dutty}}"><br>
-    <input class="form-control"  type="tel" name="phone" placeholder="Phone number" value="{{data.Phone_number}}"><br>
-    <input class="form-control"  type="email" name="email" placeholder="Email address" value="{{data.user.email}}"><br>
+    <input class="form-control"  type="text" placeholder="Enter full name" name="name" value="{{data.user.first_name}}" required><br>
+    <input class="form-control"  type="text" name="dutty" placeholder="Job" value="{{data.Dutty}}" required><br>
+    <input class="form-control"  type="tel" name="phone" placeholder="Phone number" value="{{data.Phone_number}}" required><br>
+    <input class="form-control"  type="email" name="email" placeholder="Email address" value="{{data.user.email}}" required><br>
     <a href="{{data.Photo.url}}">view</a><br>
-    <input class="form-control"  type="file" name="photo"><br>
+    <input class="form-control"  type="file" name="photo" required><br>
     <input class="btn btn-primary"  type="submit" value="Add">
+    <a href="/manager/delete/user/{{data.user.id}}" class="btn btn-danger">Delete</a>
 </form>
 {% endif %}
 
