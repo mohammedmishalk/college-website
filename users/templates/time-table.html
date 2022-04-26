@@ -1,4 +1,76 @@
-{% extends 'index.html' %}
+{% extends 'user_index.html' %}
 {% block views %}
-t
+{% for table in data %}
+{% if table.Class == 1 %}
+<h3>FIRST YEAR</h3>
+{% elif table.Class == 2%}
+<h3>SECOND  YEAR</h3>
+{% else %}
+<h3>THIRD YEAR</h3>
+{% endif %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">P1</th>
+        <th scope="col">P2</th>
+        <th scope="col">P3</th>
+        <th scope="col">P4</th>
+        <th scope="col">P5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <th>
+            Monday
+          </th>
+          <td {% if 'P1' in table.day.mon %} class="table-success" {% endif %}></td>
+          <td {% if 'P2' in table.day.mon %} class="table-success" {% endif %}></td>
+          <td {% if 'P3' in table.day.mon %} class="table-success" {% endif %}></td>
+          <td {% if 'P4' in table.day.mon %} class="table-success" {% endif %}></td>
+          <td {% if 'P5' in table.day.mon %} class="table-success" {% endif %}></td>
+      </tr>
+      <tr>
+        <th>
+            Tuesday
+        </th>
+        <td {% if 'P1' in table.day.tue %} class="table-success" {% endif %}></td>
+        <td {% if 'P2' in table.day.tue %} class="table-success" {% endif %}></td>
+        <td {% if 'P3' in table.day.tue %} class="table-success" {% endif %}></td>
+        <td {% if 'P4' in table.day.tue %} class="table-success" {% endif %}></td>
+        <td {% if 'P5' in table.day.tue %} class="table-success" {% endif %}></td>
+      </tr>
+      <tr>
+        <th>
+            Wednesday
+        </th>
+        <td {% if 'P1' in table.day.wed %} class="table-success" {% endif %}></td>
+        <td {% if 'P2' in table.day.wed %} class="table-success" {% endif %}></td>
+        <td {% if 'P3' in table.day.wed %} class="table-success" {% endif %}></td>
+        <td {% if 'P4' in table.day.wed %} class="table-success" {% endif %}></td>
+        <td {% if 'P5' in table.day.wed %} class="table-success" {% endif %}></td>
+    </tr>
+    <tr>
+        <th>
+            Thursday
+        </th>
+        <td {% if 'P1' in table.day.thu %} class="table-success" {% endif %}></td>
+        <td {% if 'P2' in table.day.thu %} class="table-success" {% endif %}></td>
+        <td {% if 'P3' in table.day.thu %} class="table-success" {% endif %}></td>
+        <td {% if 'P4' in table.day.thu %} class="table-success" {% endif %}></td>
+        <td {% if 'P5' in table.day.thu %} class="table-success" {% endif %}></td>
+    </tr>
+    <tr>
+        <th>
+            Friday
+        </th>
+        <td {% if 'P1' in table.day.fri %} class="table-success" {% endif %}></td>
+        <td {% if 'P2' in table.day.fri %} class="table-success" {% endif %}></td>
+        <td {% if 'P3' in table.day.fri %} class="table-success" {% endif %}></td>
+        <td {% if 'P4' in table.day.fri %} class="table-success" {% endif %}></td>
+        <td {% if 'P5' in table.day.fri %} class="table-success" {% endif %}></td>
+    </tr>
+    </tbody>
+</table>
+{% endfor %}
 {% endblock %}

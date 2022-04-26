@@ -17,6 +17,7 @@
       </div>  
       <div class="row ge_second">
         {% for item in data %}
+        {% if item.accepted %}
         <div class="col-sm-3 mix">
           <div class="item port-popup">
             <a href="{{item.Photo.url}}"  > 
@@ -25,6 +26,7 @@
             </a>
           </div>
         </div>
+        {% endif %}
         {% endfor %}
         <div class="col-sm-3 mix">
           <div class="item port-popup">

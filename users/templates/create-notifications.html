@@ -1,6 +1,14 @@
-{% extends 'index.html' %}
+{% extends 'user_index.html' %}
 {% block views %}
 notification center
+<style>
+    .card-header{
+        background-color: #4c4e60;
+    }
+    .card-header{
+        color: #fff;
+    }
+</style>
 
 {% if user.last_name == 'teacher'%}
 <form action="" method="post">
